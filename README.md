@@ -1,4 +1,4 @@
-# GetCleanAssignment4
+GetCleanAssignment4
 Following is a description (and explanation) of the different steps in the script run_analysis.R to accomplish the five tasks that it #is required to do as part of the assignment #4 of Getting and Cleaning Data by Coursera. 
 
 For the run_analysis.R script to work properly it should do the following:
