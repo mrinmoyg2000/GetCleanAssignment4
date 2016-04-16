@@ -1,5 +1,5 @@
 # GetCleanAssignment4
-#Following is a description (and explanation) of the different steps in the script run_analysis.R to accomplish the five tasks that it #is required to do as part of the assignment #4 of Getting and Cleaning Data by Coursera. Here any line starting with # #sign is not part of the code.
+#Following is a description (and explanation) of the different steps in the script run_analysis.R to accomplish the five #tasks that it #is required to do as part of the assignment #4 of Getting and Cleaning Data by Coursera. Here any line #starting with # #sign is not part of the code.
 
 #For the run_analysis.R script to work properly it should do the following:
 #1.	Merges the training and the test sets to create one data set.
@@ -17,7 +17,7 @@ library(plyr)
 library(tidyr)
 library(dplyr)
 
-#Read the files for training set and the features. I have downloaded the zip file of the original dataset and then unzipped #and placed the folder on the desktop and made it the working directory. The data is located primarily in two subfolders #"train" and "test". Other relevant dataset is the features.txt located in the main folder. So the first step for the# #script is to read the relevant files and store them in properly named objects (e.g. "train", "activity1" etc.). Train and #test folders contain similar files and so the operations on train set of data is the same as on test set. Here I will #explain what the script does to the train set, for the test set script does the same.  
+#Read the files for training set and the features. I have downloaded the zip file of the original dataset and then #unzipped #and placed the folder on the desktop and made it the working directory. The data is located primarily in two #subfolders #"train" and "test". Other relevant dataset is the features.txt located in the main folder. So the first step #for the# #script is to read the relevant files and store them in properly named objects (e.g. "train", "activity1" etc.). #Train and test folders contain similar files and so the operations on train set of data is the same as on test set. Here #I will #explain what the script does to the train set, for the test set script does the same.  
 
 #After reading the dataframes, the script uses features.txt dataset to name the columns of train dataframe. Then convert #the activity levels into factor variable and using plyr package changes the activity levels from "1", "2", "3", "4", "5", #and "6" to "Walking", "Walking_Upstairs", "Walking_Downstairs", "Sitting", "Standing" and "Laying" respectively. After #that the script changes the column names of subject (give a column name to be more accurate "Subject_ID") and activity #levels ("Activity"). Then merge the two single column dataframes of subject1 and activit1 to train dataframe (561 columns) #using cbind function. This result in a dataframe with the dimension 7352 x 563.
 
@@ -76,7 +76,7 @@ short <-grep("mean|std", names(merged), ignore.case = TRUE)
 
 extracted <- merged[, c("Subject_ID", "Activity", names(merged)[short])]
 
-#tidying the dataset by converting the wide form into long form using the package tidyr. Here I used the pipe operator %>%. I gathered 86 measurement columns and converted them into rows with the column name (key) being "Measurement". Here I gathred everything except "Subject_ID" and "Activity".  
+#tidying the dataset by converting the wide form into long form using the package tidyr. Here I used the pipe operator %>#%. I gathered 86 measurement columns and converted them into rows with the column name (key) being "Measurement". Here I #gathred everything except "Subject_ID" and "Activity".  
 
 tidied <- extracted%>% gather(Measurement, value, -Subject_ID, -Activity)
 
