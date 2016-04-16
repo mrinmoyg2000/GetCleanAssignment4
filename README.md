@@ -70,7 +70,7 @@ Now merge the two datasets
 
 merged <- rbind(merge1, merge2)
 
-Extract the columns with only the mean and std measurements. Here it was not clear if only the mean() and std () of the measurements to be extracted or any measurements with the word "mean" in it to be extracted along with std(). Here I have used the latter i.e. any measurement/column names of the merged dataset that has std() or the word "mean" in it. The extraction resulted in a dataframe with the dimension of 10299 x  88. If I only wanted mean() and std(), the resulting #dataset would have the dimension of 10299 x 68. To extract only mean() and std(), I would have changed the code from #"short <-grep###("mean|std", names(merged), ignore.case = TRUE)" to "short <- grep("\\bmean()\\b|\\std()\\b", names(merged), #ignore.case = TRUE). The rest would have remained the same.
+Extract the columns with only the mean and std measurements. Here it was not clear if only the mean() and std () of the measurements to be extracted or any measurements with the word "mean" in it to be extracted along with std(). Here I have used the latter i.e. any measurement/column names of the merged dataset that has std() or the word "mean" in it. The extraction resulted in a dataframe with the dimension of 10299 x  88. If I only wanted mean() and std(), the resulting dataset would have the dimension of 10299 x 68. To extract only mean() and std(), I would have changed the code from "short <-grep("mean|std", names(merged), ignore.case = TRUE)" to "short <- grep("\\bmean()\\b|\\std()\\b", names(merged), ignore.case = TRUE). The rest would have remained the same.
 
 short <-grep("mean|std", names(merged), ignore.case = TRUE)
 
